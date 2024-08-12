@@ -1,100 +1,17 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>注册Worktile</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-   
-    <div class="blob"></div>
-    <div class="wrapper">
-        <form action="http://127.0.0.1:7001/api/register" method="POST">
-             <h2>Join Us</h2>
-             <div class="input-box">
-                <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-                <input type="text" required>
-                <label >账号</label>
-            </div>
-             <div class="input-box">
-                 <span class="icon"><ion-icon name="mail-open-outline"></ion-icon></span>
-                 <input type="eamil" required>
-                 <label >邮箱</label>
-             </div>
-             <div class="input-box">
-                 <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                 <input type="password" required>
-                 <label >密码</label>
-             </div>
-             <div class="remeber-forgot">
-                 <label>
-                     <input type="checkbox"> 我同意所有条款
-                 </label>
-             </div>
-             <button type="submit">注册按钮</button>
-             <div class="register-link">
-                 <p>已有账号? <a href="LogIn.html">点击登录</a></p>
-             </div>
-         </form>
-    </div>
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', async function(event) {
-      event.preventDefault(); // 阻止默认提交行为
-  
-      const formData = new FormData(this);
-      const formDataObject = {};
-      formData.forEach((value, key) => {
-          formDataObject[key] = value;
-      });
-  
-      try {
-          const response = await fetch('http://127.0.0.1:7001/api/register', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json', // 设置正确的请求头
-              },
-              body: JSON.stringify(formDataObject) // 将表单数据转换为 JSON
-          });
-          console.log(response);
-          console.log(response.data);
-          if (response.ok) {
-              const data = await response.json();
-              if (data.success) {
-                  alert('登录成功！');
-                  window.location.href = './home.html';
-              } else {
-                  alert('登录失败，请检查您的密码。');
-              }
-          } else {
-              alert('服务器错误，请稍后再试。');
-          }
-      } catch (error) {
-          console.error('网络错误:', error);
-          alert('网络错误，请稍后再试。');
-      }
-  });
-    </script>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Worktile</title>
+    <title>注册</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="blob"></div>
    <div class="wrapper">
         <form id="loginForm" action="http://127.0.0.1:7001/api/register" method="POST">
-            <h2>Join Worktile</h2>
+            <h2>加入worktile</h2>
             <div class="input-box">
                 <span class="icon"><ion-icon name="mail-open-outline"></ion-icon></span>
                 <input type="email" name="email" required>
@@ -107,7 +24,7 @@
             </div>
             <div class="remeber-forgot">
                 <label>
-                    <input type="checkbox"> 我同意所有条款
+                    <input type="checkbox" required> 我已阅读并同意所有条款
                 </label>
             </div>
             <button type="submit">注册</button>

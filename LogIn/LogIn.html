@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="icon" type="image/svg+xml" href="../todoList/kanban-react/src/assets/favicon.svg" /> -->
     <title>Worktile</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="blob"></div>
    <div class="wrapper">
         <form id="loginForm" action="http://127.0.0.1:7001/api/login" method="POST">
-            <h2>Welcome To Worktile</h2>
+            <h2>欢迎来到worktile</h2>
             <div class="input-box">
                 <span class="icon"><ion-icon name="mail-open-outline"></ion-icon></span>
                 <input type="email" name="email" required>
@@ -61,7 +63,7 @@
             const data = await response.json();
             if (data.success) {
                 alert('登录成功！');
-                window.location.href = './home.html';
+                window.location.href = 'http://localhost:5173/';
             } else {
                 alert('登录失败，请检查您的密码。');
             }
@@ -74,29 +76,6 @@
     }
 });
 
-        // document.getElementById('loginForm').addEventListener('submit', async function(event) {
-        //   event.preventDefault(); // 阻止默认提交行为
-      
-        //   const formData = new FormData(this);
-        //   const response = await fetch('http://127.0.0.1:7001/api/login', {
-        //     method: 'POST',
-        //     body: formData
-        //   });
-        //   console.log(response);//jiancha
-        //   console.log(response.data);
-        //   if (response.ok) {
-        //     const data = await response.json();
-        //     if (data.success) {
-        //       alert('登录成功！');
-        //       // 这里可以重定向到另一个页面，例如主页
-        //       window.location.href = './home.html';
-        //     } else {
-        //       alert('登录失败，请检查您的凭据。');
-        //     }
-        //   } else {
-        //     alert('服务器错误，请稍后再试。');
-        //   }
-        // });
       </script>
 </body>
 </html>
