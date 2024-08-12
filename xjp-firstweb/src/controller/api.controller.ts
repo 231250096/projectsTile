@@ -1,5 +1,5 @@
 // controller/api.controller.ts
-import { Controller, Post, Body, Inject} from '@midwayjs/core';
+import { Controller, Post, Body, Inject, Get, Param, Put} from '@midwayjs/core';
 import { UserService } from '../service/user.service';
 
 @Controller('/api')
@@ -32,4 +32,22 @@ export class ApiController {
     }
     return { success: true, user };
   }
+
+  @Get('/user/:id')
+  async getUser(@Param('id') id: number) {
+    const user = await this.userService.getUserById(id);
+    if (!user) {
+      return { success: false, message: 'User not found' };
+    }
+    return { success: true, user };
+  }
+
+  @Put('/updateEvents/:id')
+  async updateUser(@Param('id') id: number, @Body() body: { events: any[] }) {
+    const success = await this.userService.updateUserEvents(id, body.events);
+    if (success) {
+      return { message: 'Events updated successfully' };
+    }
+    return { message: 'Failed to update events' };
+}
 }
