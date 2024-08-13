@@ -86,6 +86,10 @@ export class UserService {
     return UserService.files.find(file => file.id === id);
   }
 
+  async getAllUsers() {
+    return UserService.users;
+  }
+
 }
 
 

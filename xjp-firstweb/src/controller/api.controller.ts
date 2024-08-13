@@ -28,6 +28,7 @@ export class ApiController {
     const user = await this.userService.loginUser(email, password);
     console.log(email);
     console.log(password);
+    console.log(UserService.users)
     if (user.email === '0') {
       return { success: false, user };
     }
@@ -77,5 +78,15 @@ export class ApiController {
       return { success: false, message: 'User not found' };
     }
     return { success: true, file };
+
+  }
+
+  @Get('/AllUsers')
+  async getUsers() {
+    const users = await this.userService.getAllUsers();
+    if (!users || users.length === 0) {
+      return { success: false, message: 'No users found' };
+    }
+    return users;
   }
 }
