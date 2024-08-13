@@ -15,6 +15,7 @@ export class UserService {
     ]}
   ];
   static files = [];
+  static comments = [];
 
   async registerUser(email: string, password: string) {
     console.log(email)
