@@ -7,6 +7,7 @@ import * as crossDomain from '@midwayjs/cross-domain'
 // import { DefaultErrorFilter } from './filter/default.filter';
 // import { NotFoundFilter } from './filter/notfound.filter';
 import { ReportMiddleware } from './middleware/report.middleware';
+import * as upload from '@midwayjs/upload';
 
 @Configuration({
   imports: [
@@ -17,6 +18,7 @@ import { ReportMiddleware } from './middleware/report.middleware';
       component: info,
       enabledEnvironment: ['local'],
     },
+    upload,
   ],
   importConfigs: [join(__dirname, './config')],
 })

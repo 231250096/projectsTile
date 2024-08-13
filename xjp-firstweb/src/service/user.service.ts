@@ -7,13 +7,14 @@ export class UserService {
   static users = [
     { id: 1, email: 'test@example.com', password: '1212', events: [
       {
-        title: 'First project',
+        title: '第一个项目',
         ['To do']: [],
         ['In progress']: [],
         ['Completed']: [],
       }
     ]}
   ];
+  static files = [];
 
   async registerUser(email: string, password: string) {
     console.log(email)
@@ -63,6 +64,27 @@ export class UserService {
     }
     return false;
   }
+
+  async updateFilePath(id: any, filepath: string) {
+    console.log(filepath)
+    console.log(id);
+    const idExists = UserService.files.some(file => file.id === id);
+    if (idExists) {
+      return false;
+    }
+    UserService.files.push({id, filepath});
+    console.log(UserService.files)
+    return true;
+  }
+
+  async getFileById(id : any) {
+    const idExists = UserService.files.some(file => file.id === id);
+    if(!idExists){
+      return {id: '0', filepath: '0'}
+    }
+    return UserService.files.find(file => file.id === id);
+  }
+
 }
 
 
